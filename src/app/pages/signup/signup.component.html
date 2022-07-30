@@ -34,6 +34,7 @@
           placeholder="Confirm Password" 
           formControlName="cnfPwd"/>
           <mat-error *ngIf="f['cnfPwd'].errors && f['cnfPwd'].errors['required']">Confirm Password is required</mat-error>
+          <mat-error *ngIf="f['cnfPwd'].errors && f['cnfPwd'].errors['matching']">Password and Confirm Password does not match</mat-error>
         </mat-form-field>
       </mat-card-content>
       <button type="submit" mat-stroked-button color="accent" class="btn-block">

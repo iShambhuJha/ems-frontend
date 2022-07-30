@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Validation from 'src/app/shared/utils/confirm-password';
 
 @Component({
   selector: 'app-signup',
@@ -18,6 +19,10 @@ export class SignupComponent implements OnInit {
         emailId:["", Validators.required],
         password:["", Validators.required],
         cnfPwd:["", Validators.required]
+      }
+      ,
+      {
+        validators: [Validation.match('password', 'cnfPwd')],
       }
     )
   }
