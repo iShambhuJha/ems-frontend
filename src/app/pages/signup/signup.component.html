@@ -18,6 +18,7 @@
           placeholder="Email Id" 
           formControlName="emailId"/>
           <mat-error *ngIf="f['emailId'].errors && f['emailId'].errors['required']">Email Id is required</mat-error>
+          <mat-error *ngIf="f['emailId'].errors && f['emailId'].errors['email']">Invalid Email Id</mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <input 
