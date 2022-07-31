@@ -10,6 +10,8 @@ import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.compone
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataClientService } from './core/services/data-client.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularMaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DataClientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
