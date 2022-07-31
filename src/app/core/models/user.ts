@@ -1,4 +1,4 @@
 export interface IUser {
-
-    // accessToken?: String;
+    status?: String;
+    message?: String;
   }

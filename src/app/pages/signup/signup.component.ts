@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
     }
     this.authenticationService.signUp(userData).subscribe(
       (data) => {
-        alert(data);
+        alert(data.message);
       },
       (err) => {
         
