@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/core/services/authentication.service';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
+
 export class SigninComponent implements OnInit {
 
  userForm!: FormGroup;
@@ -14,7 +17,7 @@ export class SigninComponent implements OnInit {
  public showPassword: boolean = false;
  
 
-  constructor(public fb:FormBuilder) { }
+  constructor(public fb:FormBuilder,  private authenticationService: AuthenticationService,private httpClient: HttpClient) { }
 
   ngOnInit() {
   
@@ -28,13 +31,32 @@ export class SigninComponent implements OnInit {
   }
 
     onSubmit(){
+      var loginData = {
+        "empCode": this.userForm.get('emailId')?.value,
+        "password": this.userForm.get('Password')?.value
+      }
+
       if(this.userForm.invalid) {
         this.userForm.markAsTouched();
       }
+
+      this.authenticationService.logIn(loginData).subscribe((data)=>{
+        console.log(data.accessToken);
+        localStorage.setItem('access_token',data.accessToken)
+      })  
+
     
-      console.log(this.userForm.value);
-      
     }
-  
-  
+
+
+//Function to get JWT access token that we will use to allow the user to access the protected resources on the server.
+
+    // login(user:any){
+    //   return this.httpClient.post("http://localhost:3000/login",user).subscribe((res) => {
+    //     console.log('res', res);
+    //     localStorage.setItem('access_token', JSON.stringify(res));
+    //     console.log('res', res);
+    //    })
+    //  }
+          
 }
