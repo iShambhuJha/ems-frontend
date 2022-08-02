@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -17,7 +18,7 @@ export class SigninComponent implements OnInit {
  public showPassword: boolean = false;
  
 
-  constructor(public fb:FormBuilder,  private authenticationService: AuthenticationService,private httpClient: HttpClient) { }
+  constructor(public fb:FormBuilder,  private authenticationService: AuthenticationService,private httpClient: HttpClient, public router:Router) { }
 
   ngOnInit() {
   
@@ -42,7 +43,11 @@ export class SigninComponent implements OnInit {
 
       this.authenticationService.logIn(loginData).subscribe((data)=>{
         console.log(data.accessToken);
-        localStorage.setItem('access_token',data.accessToken)
+        localStorage.setItem('access_token',data.accessToken);
+        if(data.accessToken){
+          this.authenticationService.loggedIn();
+          this.router.navigate(['/signup'])
+        }
       })  
 
     

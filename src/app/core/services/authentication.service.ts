@@ -21,9 +21,8 @@ export class AuthenticationService {
       // localStorage.setItem('access_token', res.accessToken);
   }
 
-  public loggedIn(){
-    return this.isLoggedIn;
-
+  public loggedIn(): boolean {
+    return this.isLoggedIn = true;
   }
 
 }

@@ -7,7 +7,7 @@
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Employee Code/Email Id" formControlName = "emailId" />
-            <mat-error *ngIf="userForm.get('emailId')?.hasError('required')">emailId required</mat-error>
+            <mat-error *ngIf="userForm.get('emailId')?.hasError('required')">emailId required/employee code</mat-error>
             <!-- <mat-error *ngIf="userForm.get('emailId')?.hasError('required')">emailId required</mat-error> -->
           </mat-form-field>
           <mat-form-field class="example-full-width">
