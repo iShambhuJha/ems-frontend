@@ -21,6 +21,7 @@ export class SigninComponent implements OnInit {
   constructor(public fb:FormBuilder,  private authenticationService: AuthenticationService,private httpClient: HttpClient, public router:Router) { }
 
   ngOnInit() {
+    
   
      this.userForm = this.fb.group ({
       emailId: ['', Validators.required],
@@ -42,13 +43,17 @@ export class SigninComponent implements OnInit {
       }
 
       this.authenticationService.logIn(loginData).subscribe((data)=>{
-        console.log(data.accessToken);
+        // console.log(data.accessToken);
         localStorage.setItem('access_token',data.accessToken);
         if(data.accessToken){
           this.authenticationService.loggedIn();
           this.router.navigate(['/signup'])
         }
       })  
+
+      // let  token = this.authenticationService.getToken()
+      // console.log('token', token);
+    
 
     
     }

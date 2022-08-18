@@ -9,6 +9,8 @@ import { DataClientService } from './data-client.service';
 })
 export class AuthenticationService {
   isLoggedIn = false;
+  Token: any;
+  
 
   constructor(private dataClientService: DataClientService) { }
   // Service method to create a new user
@@ -25,4 +27,10 @@ export class AuthenticationService {
     return this.isLoggedIn = true;
   }
 
+  public  getToken() {
+    // this.dataClientService.get(HttpUrls.USER_LOGIN).subscribe((token) =>{
+    //  return this.Token = token;
+    // })
+    return localStorage.getItem('accessToken');
+  }
 }
