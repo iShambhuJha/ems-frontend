@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import * as CryptoJS from 'crypto-js'; 
 
 @Component({
   selector: 'app-signin',
@@ -35,7 +36,8 @@ export class SigninComponent implements OnInit {
     onSubmit(){
       var loginData = {
         "empCode": this.userForm.get('emailId')?.value,
-        "password": this.userForm.get('Password')?.value
+        "password": CryptoJS.MD5(this.userForm.get('Password')?.value).toString()
+        
       }
 
       if(this.userForm.invalid) {
