@@ -32,11 +32,11 @@ export class SigninComponent implements OnInit {
   public togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }
-
+  // "password": CryptoJS.MD5(this.userForm.get('Password')?.value).toString()
     onSubmit(){
       var loginData = {
         "empCode": this.userForm.get('emailId')?.value,
-        "password": CryptoJS.MD5(this.userForm.get('Password')?.value).toString()
+        "password": this.userForm.get('Password')?.value
         
       }
 
@@ -49,7 +49,7 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('access_token',data.accessToken);
         if(data.accessToken){
           this.authenticationService.loggedIn();
-          this.router.navigate(['/signup'])
+          this.router.navigate(['/dashboard'])
         }
       })  
 
