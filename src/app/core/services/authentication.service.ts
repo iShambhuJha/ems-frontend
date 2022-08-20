@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { HttpUrls } from 'src/app/shared/http-urls';
 import { IUser } from '../models/user';
 import { DataClientService } from './data-client.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { DataClientService } from './data-client.service';
 export class AuthenticationService {
   isLoggedIn = false;
   Token: any;
+  isLoading = new Subject<boolean>();
   
 
   constructor(private dataClientService: DataClientService) { }
@@ -33,4 +35,14 @@ export class AuthenticationService {
     // })
     return localStorage.getItem('accessToken');
   }
+
+  // spinner 
+show() {
+    this.isLoading.next(true);
+ }
+
+ hide() {
+  this.isLoading.next(false);
+}
+
 }

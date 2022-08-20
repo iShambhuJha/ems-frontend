@@ -15,6 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './core/interceptors/http.interceptor';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NgChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule ,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
+    NgToastModule
   ],
   providers: [
     DataClientService,  {

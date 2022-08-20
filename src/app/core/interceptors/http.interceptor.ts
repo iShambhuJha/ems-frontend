@@ -6,7 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
-import { Observable } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 
 @Injectable()
 
@@ -18,6 +18,9 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    this.authenticationService.show();
+     
+
     const authToken = this.authenticationService.getToken();
     console.log('bearerToken', authToken)
    request = request.clone({
@@ -25,6 +28,6 @@ export class TokenInterceptor implements HttpInterceptor {
       Authorization: `Bearer ${authToken}`
     }
    })
-   return next.handle(request);
+   return next.handle(request) .pipe(finalize(()=> this.authenticationService.hide()));;
   }
 }
