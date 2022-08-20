@@ -14,6 +14,7 @@ import { DataClientService } from './core/services/data-client.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './core/interceptors/http.interceptor';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule ,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [
     DataClientService,  {
