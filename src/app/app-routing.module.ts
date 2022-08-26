@@ -11,6 +11,12 @@ const routes: Routes = [
   {path:'signin', component: SigninComponent},
   {path:'signup', component: SignupComponent},
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
+  { 
+    path: 'employees', 
+    loadChildren: () => import(`./modules/manage-employees/manage-employees/manage-employees.module`).then(
+      module => module.ManageEmployeesModule
+    ),
+  },
   {path:'**', component:PagenotfoundComponent}
 ];
 
