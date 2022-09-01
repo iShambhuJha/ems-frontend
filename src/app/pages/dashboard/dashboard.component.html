@@ -1,6 +1,6 @@
 
 
-  <div>
+  <!-- <div>
     <div style="display: block">
       <canvas baseChart
               [datasets]="barChartData"
@@ -10,4 +10,11 @@
              >
       </canvas>
     </div>
-  </div>
+  </div> -->
+
+  <app-dynamic-table [tableData]="tableData" 
+                     [tableColumns]="tableColumns"></app-dynamic-table>
+
+                     <p>secound table</p>
+<app-dynamic-table [tableData]="anotherTableData" 
+                    [tableColumns]="anotherTableColumns"></app-dynamic-table>

@@ -16,6 +16,7 @@ import { TokenInterceptor } from './core/interceptors/http.interceptor';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgToastModule } from 'ng-angular-popup';
+import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-table.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgToastModule } from 'ng-angular-popup';
     SigninComponent,
     SignupComponent,
     PagenotfoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    DynamicTableComponent
   ],
   imports: [
     BrowserModule,
