@@ -1,0 +1,44 @@
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container
+      *ngFor="let disCol of tableColumns let colIndex = index;"
+      matColumnDef="{{disCol.columnDef}}"
+    >
+      <th mat-header-cell *matHeaderCellDef>
+        {{ disCol.header }}
+      </th>
+<!-- <tr>
+    <td mat-cell *matCellDef="let row" style="width:20%">
+      <button mat-icon-button color="primary"  title="View Contact"><mat-icon>preview</mat-icon></button>
+      <button mat-icon-button color="primary"  title="Edit Contact"><mat-icon>edit</mat-icon></button>
+    </td>
+</tr> -->
+
+  
+      <td mat-cell *matCellDef="let element">
+
+        <span *ngIf="!disCol.isAction; else isAction">
+          {{ disCol.cell(element) }}
+        </span>
+  
+        <ng-template #link>
+          <!-- <a [routerLink]="[disCol.url]"> -->
+            {{ disCol.cell(element) }}
+          <!-- </a> -->
+        </ng-template>
+
+        <ng-template #isAction>
+              <tr>
+                <td>
+                  <mat-icon aria-hidden="false"  matTooltip="Click to Edit" aria-label="Example home icon" fontIcon="edit"></mat-icon> |
+                  <mat-icon aria-hidden="false"  matTooltip="Click to Delete" aria-label="Example home icon" color="warn" fontIcon="delete"></mat-icon>
+                </td>
+              </tr>
+        </ng-template>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
