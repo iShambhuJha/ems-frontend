@@ -17,6 +17,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgToastModule } from 'ng-angular-popup';
 import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-table.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogPopupComponent } from './shared/dialog/dialog-popup/dialog-popup.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-tab
     ReactiveFormsModule ,
     HttpClientModule,
     NgChartsModule,
-    NgToastModule
+    NgToastModule,
+    MatDialogModule
   ],
   providers: [
     DataClientService,  {
@@ -46,6 +49,8 @@ import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-tab
       multi: true
     }
   ],
+  entryComponents:[DialogPopupComponent],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
