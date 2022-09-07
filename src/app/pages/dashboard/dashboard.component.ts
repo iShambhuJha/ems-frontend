@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-// import { DynamicTableComponent } from ''
 
 
 @Component({
@@ -7,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
 
   // first table with different columns
@@ -14,38 +14,43 @@ export class DashboardComponent implements OnInit {
   tableColumns: Array<any> = [ {
     columnDef: 'position',
     header: 'Position',
-    cell: (element: Record<string, any>) => `${element['position']}`
+    cell: (element: Record<string, any>) => `${element['position']}`,
+    sortable: true
   },
   {
     columnDef: 'name',
     header: 'Name',
     cell: (element: Record<string, any>) => `${element['name']}`,
     isLink: true,
-    url: 'abc'
+    url: 'abc',
+    sortable: true
   },
   {
     columnDef: 'weight',
     header: 'Weight',
-    cell: (element: Record<string, any>) => `${element['weight']}`
+    cell: (element: Record<string, any>) => `${element['weight']}`,
+    sortable: true
   },
   {
     columnDef: 'symbol',
     header: 'Symbol',
-    cell: (element: Record<string, any>) => `${element['symbol']}`
+    cell: (element: Record<string, any>) => `${element['symbol']}`,
+    sortable: true
   },
   {
     columnDef: 'Actions',
     header: 'Actions',
     cell: (element: Record<string, any>) => `${element['Actions']}`,
-    isAction:true
+    isAction:true,
+    sortable: true
   },
 ];
 
   
   tableData: Array<any> = [
     { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
     { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
     { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
     { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },

@@ -22,6 +22,8 @@ import { SiteHeaderComponent } from './layout/site-header/site-header.component'
 import { SiteFooterComponent } from './layout/site-footer/site-footer.component';
 import { SiteSidenavComponent } from './layout/site-sidenav/site-sidenav.component';
 import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-table.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogPopupComponent } from './shared/dialog/dialog-popup/dialog-popup.component';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-tab
     ReactiveFormsModule ,
     HttpClientModule,
     NgChartsModule,
-    NgToastModule
+    NgToastModule,
+    MatDialogModule
   ],
   providers: [
     DataClientService,  {
@@ -56,6 +59,8 @@ import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-tab
       multi: true
     }
   ],
+  entryComponents:[DialogPopupComponent],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
