@@ -1,9 +1,26 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
+  "employees":[
+    {
+      "id": 1,
+      "empId": 111,
+      "emailId": "naveen.x.gande@gmail.com",
+      "firstName": "naveen",
+      "lastName": "gande",
+      "designation": "B.tech",
+      "department": "exam one",
+      "age": 25,
+      "gender": "Male"
+    },
+    {
+      "id": 1,
+      "empId": 222,
+      "emailId": "john.x.doe@gmail.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "designation": "B.tech",
+      "department": "exam one",
+      "age": 25,
+      "gender": "Male"
+    }
+  ]
   }

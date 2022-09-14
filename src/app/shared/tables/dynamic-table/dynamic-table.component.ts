@@ -1,8 +1,9 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import {DialogPopupComponent} from 'src/app/shared/dialog/dialog-popup/dialog-popup.component'
 import { MatDialog} from '@angular/material/dialog'
+import { MatSort } from '@angular/material/sort';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { MatDialog} from '@angular/material/dialog'
 })
 export class DynamicTableComponent implements OnInit {
 
+  @ViewChild(MatSort)
+  sort!: MatSort;
   
   @Input()
   tableColumns:Array<any> =[]
@@ -25,6 +28,10 @@ export class DynamicTableComponent implements OnInit {
   @Input()
   anotherTableData:any;
 
+  
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
 
 
 
@@ -36,6 +43,7 @@ dataSource: MatTableDataSource<any> = new MatTableDataSource();
   ngOnInit(): void {
     this.displayedColumns = this.tableColumns.map((c) => c.columnDef);
     this.dataSource = new MatTableDataSource(this.tableData);
+    console.log('dynamicTable', this.tableData);
   }
 
   editEmpPage(){

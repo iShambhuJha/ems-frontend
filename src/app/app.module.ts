@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,10 @@ import { SiteSidenavComponent } from './layout/site-sidenav/site-sidenav.compone
 import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-table.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogPopupComponent } from './shared/dialog/dialog-popup/dialog-popup.component';
+import { ManageEmployeesModule } from './modules/manage-employees/manage-employees/manage-employees.module';
+import { MainComponent } from './modules/manage-employees/main/main.component';
+
+
 
 
 @NgModule({
@@ -37,7 +41,9 @@ import { DialogPopupComponent } from './shared/dialog/dialog-popup/dialog-popup.
     SiteHeaderComponent,
     SiteFooterComponent,
     SiteSidenavComponent,
-    DynamicTableComponent,
+    DynamicTableComponent
+
+    
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,8 @@ import { DialogPopupComponent } from './shared/dialog/dialog-popup/dialog-popup.
     HttpClientModule,
     NgChartsModule,
     NgToastModule,
-    MatDialogModule
+    MatDialogModule,
+    ManageEmployeesModule,
   ],
   providers: [
     DataClientService,  {
@@ -59,6 +66,7 @@ import { DialogPopupComponent } from './shared/dialog/dialog-popup/dialog-popup.
       multi: true
     }
   ],
+  
   entryComponents:[DialogPopupComponent],
   
   bootstrap: [AppComponent]

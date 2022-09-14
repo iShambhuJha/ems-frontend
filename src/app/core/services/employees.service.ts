@@ -9,7 +9,7 @@ import { Employees } from '../models/employees';
   providedIn: 'root'
 })
 export class EmployeesService {
-  private apiServer = "http://localhost:3000";
+  private apiServer = "http://localhost:4000";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ export class EmployeesService {
   }
 
   getAll(): Observable<Employees[]> {
-    return this.httpClient.get<Employees[]>(this.apiServer + '/getEmployees/')
+    return this.httpClient.get<Employees[]>(this.apiServer + '/employees/')
     .pipe(
       catchError(this.errorHandler)
     )

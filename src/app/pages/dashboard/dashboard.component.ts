@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
     header: 'Actions',
     cell: (element: Record<string, any>) => `${element['Actions']}`,
     isAction:true,
-    sortable: true
+    sortable:false
   },
 ];
 
