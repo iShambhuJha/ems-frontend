@@ -21,11 +21,10 @@ import { SiteLayoutComponent } from './layout/site-layout/site-layout.component'
 import { SiteHeaderComponent } from './layout/site-header/site-header.component';
 import { SiteFooterComponent } from './layout/site-footer/site-footer.component';
 import { SiteSidenavComponent } from './layout/site-sidenav/site-sidenav.component';
-import { DynamicTableComponent } from './shared/tables/dynamic-table/dynamic-table.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogPopupComponent } from './shared/dialog/dialog-popup/dialog-popup.component';
 import { ManageEmployeesModule } from './modules/manage-employees/manage-employees/manage-employees.module';
-import { MainComponent } from './modules/manage-employees/main/main.component';
+import { SharedModule } from './shared.module';
 
 
 
@@ -40,8 +39,7 @@ import { MainComponent } from './modules/manage-employees/main/main.component';
     SiteLayoutComponent,
     SiteHeaderComponent,
     SiteFooterComponent,
-    SiteSidenavComponent,
-    DynamicTableComponent
+    SiteSidenavComponent
 
     
   ],
@@ -49,7 +47,6 @@ import { MainComponent } from './modules/manage-employees/main/main.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule ,
@@ -58,7 +55,10 @@ import { MainComponent } from './modules/manage-employees/main/main.component';
     NgToastModule,
     MatDialogModule,
     ManageEmployeesModule,
+    AngularMaterialModule,
+    SharedModule
   ],
+
   providers: [
     DataClientService,  {
       provide: HTTP_INTERCEPTORS,
